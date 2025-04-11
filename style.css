@@ -35,8 +35,39 @@ section {
     padding: 30px;
     max-width: 30%; /* Limit width */
     margin-left: 5%; /* Position on the left */
-    margin-top: -140px; /* Move text box up */
+    margin-top: -200px; /* Move text box up */
     border-radius: 5px;
+}
+
+#gallery .social-links {
+    padding: 20px;
+    width: auto;
+    text-align: left;
+    position: absolute;
+    bottom: 10%; /* Position in the bottom third */
+    left: 5%; /* Position on the left */
+}
+
+#gallery .social-links a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+#hero .social-links {
+    padding: 20px;
+    width: auto;
+    text-align: left;
+    position: absolute;
+    bottom: 10%; /* Position in the bottom third */
+    left: 5%; /* Position on the left */
+}
+
+#hero .social-links a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 /* Section 2: Photography Projects Gallery */
@@ -101,7 +132,7 @@ section {
 /* Section 3: Services/Social */
 #services {
     background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('pictures/11.jpg') center/cover no-repeat; /* Placeholder faded background */
-    justify-content: space-between; /* Push content and social links apart */
+    /* justify-content: space-between;  Push content and social links apart */
      background-attachment: fixed; /* Keep background fixed during scroll */
 }
 
@@ -111,6 +142,16 @@ section {
     color: white;
 }
 
+#services .text-box {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    color: black; /* Change text color to black */
+    padding: 30px;
+    max-width: 30%; /* Limit width */
+    margin-left: 70%; /* Position on the right */
+    margin-top: auto; /* Move text box to the middle of the bottom half */
+    /* margin-top: -200px;  Move text box up */
+    border-radius: 5px;
+}
 .social-links {
     padding: 20px;
     width: auto;
