@@ -35,6 +35,7 @@ section {
     padding: 30px;
     max-width: 30%; /* Limit width */
     margin-left: 5%; /* Position on the left */
+    margin-top: -140px; /* Move text box up */
     border-radius: 5px;
 }
 
