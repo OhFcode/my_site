@@ -34,19 +34,25 @@ section {
 /* Section 2: Photography Projects Gallery */
 #gallery {
     background-color: #f4f4f4; /* Light background for contrast */
+    padding: 0; /* Remove padding */
+    height: 100vh; /* Force full viewport height */
+    justify-content: stretch; /* Allow grid to fill height */
+    align-items: stretch; /* Allow grid to fill width */
 }
 
 #gallery h2 {
-    text-align: center;
-    margin-bottom: 40px;
+    /* Hide the title to allow grid to fill space */
+    display: none;
 }
 
 .image-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    grid-template-rows: repeat(2, 1fr); /* 2 rows */
     gap: 0; /* No space between images */
-    width: 80%; /* Adjust width as needed */
-    margin: 0 auto;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height of parent (#gallery) */
+    margin: 0; /* Remove margin */
 }
 
 .grid-item {
@@ -58,7 +64,8 @@ section {
 .grid-item img {
     display: block; /* Remove extra space below image */
     width: 100%;
-    height: auto;
+    height: 100%; /* Make image fill grid item height */
+    object-fit: cover; /* Cover area without distortion */
     transition: transform 0.3s ease;
 }
 
@@ -139,8 +146,10 @@ section {
 
     .image-grid {
         grid-template-columns: 1fr; /* Single column */
-        width: 95%; /* Use more width */
-        gap: 5px; /* Add a small gap for visual separation */
+        grid-template-rows: auto; /* Let rows size automatically */
+        width: 100%; /* Full width on mobile */
+        height: auto; /* Adjust height automatically */
+        gap: 0; /* No gap between images */
     }
 
      /* Make captions always visible on mobile, slightly smaller */
