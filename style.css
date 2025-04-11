@@ -8,6 +8,11 @@ body {
     margin: 0;
     font-family: sans-serif;
     color: #333;
+    background-size: cover; /* Cover the entire page */
+    background-position: center center; /* Center the background image */
+    background-attachment: fixed; /* Keep background fixed during scroll */
+    background-repeat: no-repeat;
+    transition: background-image 0.7s ease-in-out; /* Smooth transition for background change */
 }
 
 section {
@@ -238,4 +243,112 @@ section {
 
 .street-photography-image {
     object-position: 20% center;
+}
+
+.portrait-image {
+    object-position: 5% center;
+}
+
+/* Remove old gallery styles */
+/*
+.gallery { ... }
+.gallery img { ... }
+*/
+
+/* Carousel Styles */
+.carousel {
+    position: relative;
+    width: 80%; /* Adjust width as needed */
+    max-width: 800px; /* Max width for the carousel */
+    margin: 40px auto; /* Center carousel and add vertical margin */
+    overflow: hidden; /* Hide parts of slides outside the container */
+    border: 1px solid #ddd; /* Optional border */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.carousel-slides {
+    display: flex;
+    /* Default transition */
+    transition: transform 0.5s ease-in-out;
+    width: 100%; /* Ensure slides container takes full width */
+}
+
+/* Remove quick transition class rule as JS handles it directly */
+/*
+.carousel-slides.quick-transition {
+    transition-duration: 0.1s;
+}
+*/
+
+.carousel-slide {
+    min-width: 100%; /* Each slide takes full width of the container */
+    box-sizing: border-box;
+    text-align: center; /* Center image within slide */
+    /* No longer need active/prev/next styles with clone method */
+}
+
+/* Remove active/prev/next styles */
+/*
+.carousel-slide.active { ... }
+.carousel-slide.prev,
+.carousel-slide.next { ... }
+*/
+
+.carousel-slide.prev,
+.carousel-slide.next {
+    /* Styles for partially visible prev/next slides if desired */
+    /* Example: position absolute to overlap slightly */
+}
+
+
+.carousel-slide img {
+    max-width: 100%; /* Image fits within the slide */
+    max-height: 80vh; /* Increase image height limit */
+    display: block; /* Remove extra space below image */
+    margin: 0 auto; /* Center image horizontally if needed */
+}
+
+/* Style for single image page (landscape.html) */
+.single-image-container {
+    text-align: center; /* Center the image block */
+    margin: 40px auto; /* Add vertical margin and center horizontally */
+    width: 80%; /* Adjust width as needed */
+    max-width: 800px; /* Max width for the container */
+}
+
+.single-image-container img {
+    max-width: 100%; /* Image fits within the container */
+    max-height: 80vh; /* Limit image height */
+    display: block; /* Remove extra space below image */
+    margin: 0 auto; /* Center image horizontally */
+    border: 1px solid #ddd; /* Optional border */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.carousel-prev,
+.carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 20px;
+    z-index: 10;
+    border-radius: 5px;
+}
+
+.carousel-prev {
+    left: 10px;
+}
+
+.carousel-next {
+    right: 10px;
+}
+
+.carousel-prev:hover,
+.carousel-next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
 }
