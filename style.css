@@ -33,7 +33,7 @@ section {
 #hero .text-box {
     background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
     padding: 30px;
-    max-width: 40%; /* Limit width */
+    max-width: 30%; /* Limit width */
     margin-left: 5%; /* Position on the left */
     border-radius: 5px;
 }
@@ -149,7 +149,7 @@ section {
     }
 
     #hero .text-box {
-        max-width: 90%;
+        max-width: 80%;
         margin-left: 0; /* Remove left margin */
         padding: 20px;
     }
