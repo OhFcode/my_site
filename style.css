@@ -25,7 +25,7 @@ section {
 
 /* Section 1: Hero/About */
 #hero {
-    background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('hero-background.jpg') center/cover no-repeat; /* Placeholder faded background */
+    background: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url('pictures/7.jpg') center/cover no-repeat; /* Placeholder faded background */
     align-items: flex-start; /* Align text box to the left */
     background-attachment: fixed; /* Keep background fixed during scroll */
 }
@@ -99,7 +99,7 @@ section {
 
 /* Section 3: Services/Social */
 #services {
-    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('services-background.jpg') center/cover no-repeat; /* Placeholder faded background */
+    background: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url('pictures/11.jpg') center/cover no-repeat; /* Placeholder faded background */
     justify-content: space-between; /* Push content and social links apart */
      background-attachment: fixed; /* Keep background fixed during scroll */
 }
@@ -107,6 +107,7 @@ section {
 #services .content {
     text-align: center;
     max-width: 60%;
+    color: white;
 }
 
 .social-links {
@@ -125,6 +126,10 @@ section {
     margin: 0 15px;
     text-decoration: none;
     font-weight: bold;
+}
+
+#services .content {
+    color: white;
 }
 
 .social-links a:hover {
