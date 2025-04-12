@@ -262,7 +262,7 @@ section {
     max-width: 800px; /* Max width for the carousel */
     margin: 40px auto; /* Center carousel and add vertical margin */
     overflow: hidden; /* Hide parts of slides outside the container */
-    border: 1px solid #ddd; /* Optional border */
+    /* border: 1px solid #ddd; */ /* Optional border - Removed */
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
@@ -282,9 +282,11 @@ section {
 
 .carousel-slide {
     min-width: 100%; /* Each slide takes full width of the container */
+    height: 80vh; /* Set a fixed height for the slide container */
     box-sizing: border-box;
-    text-align: center; /* Center image within slide */
+    /* text-align: center; /* No longer needed with object-fit */
     /* No longer need active/prev/next styles with clone method */
+    overflow: hidden; /* Hide potential overflow from object-fit */
 }
 
 /* Remove active/prev/next styles */
@@ -302,10 +304,11 @@ section {
 
 
 .carousel-slide img {
-    max-width: 100%; /* Image fits within the slide */
-    max-height: 80vh; /* Increase image height limit */
+    width: 100%; /* Make image fill container width */
+    height: 100%; /* Make image fill container height */
+    object-fit: contain; /* Contain the entire image within the container, maintain aspect ratio, letterbox if needed */
     display: block; /* Remove extra space below image */
-    margin: 0 auto; /* Center image horizontally if needed */
+    /* margin: 0 auto; /* No longer needed with object-fit */
 }
 
 /* Style for single image page (landscape.html) */

@@ -37,18 +37,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
         function updateBackground() {
-             // Get the *actual* current index (adjusting for clones)
-             let actualCurrentIndex = currentIndex - 1; // Adjust for the prepended clone
-             if (actualCurrentIndex < 0) { // If on the last clone
-                 actualCurrentIndex = slideCount - 2 -1; // Index of the last actual slide
-             } else if (actualCurrentIndex >= slideCount - 2) { // If on the first clone
-                 actualCurrentIndex = 0; // Index of the first actual slide
-             }
+            let realSlideIndex;
+            const numRealSlides = slides.length - 2; // Total number of actual slides (excluding clones)
 
-            const activeSlide = carousel.querySelectorAll('.carousel-slide:not(.clone)')[actualCurrentIndex]; // Select from non-clones
+            if (currentIndex === 0) { // Currently showing the last clone (looks like the last real slide)
+                realSlideIndex = numRealSlides - 1; // Index of the last real slide (0-based)
+            } else if (currentIndex === slideCount - 1) { // Currently showing the first clone (looks like the first real slide)
+                realSlideIndex = 0; // Index of the first real slide (0-based)
+            } else { // Currently showing a real slide (indices 1 to numRealSlides in the full list)
+                realSlideIndex = currentIndex - 1; // Map index 1 to 0, 2 to 1, etc. for the real slides list
+            }
+
+            // Get the list of real slides only
+            const realSlides = carousel.querySelectorAll('.carousel-slide:not(.clone)');
+            // Ensure the calculated index is valid for the real slides list
+            realSlideIndex = Math.max(0, Math.min(realSlideIndex, realSlides.length - 1));
+
+            const activeSlide = realSlides[realSlideIndex]; // Get the slide using the calculated 0-based index
             const activeImageSrc = activeSlide?.querySelector('img')?.src;
+
             if (activeImageSrc) {
+                // Apply background with overlay
                 document.body.style.backgroundImage = `linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('${activeImageSrc}')`;
+                // Ensure other background properties are set correctly
+                document.body.style.backgroundSize = 'cover';
+                document.body.style.backgroundPosition = 'center center';
+                document.body.style.backgroundAttachment = 'fixed';
+                document.body.style.backgroundRepeat = 'no-repeat';
             }
         }
 
@@ -73,6 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
                     void slidesContainer.offsetHeight;
                     slidesContainer.style.transition = 'transform 0.5s ease-in-out';
+                    updateBackground();
                 } else if (currentIndex === slideCount - 1) {
                     slidesContainer.style.transition = 'none';
                     const newIndex = 1;
@@ -80,6 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
                     void slidesContainer.offsetHeight;
                     slidesContainer.style.transition = 'transform 0.5s ease-in-out';
+                    updateBackground();
                 }
                 isTransitioning = false;
             }
