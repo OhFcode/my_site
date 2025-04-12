@@ -185,30 +185,40 @@ section {
 
 /* --- Mobile Responsiveness --- */
 @media (max-width: 768px) {
+    html {
+        scroll-padding-top: 0; /* Remove scroll padding on mobile */
+    }
     section {
-        min-height: auto; /* Allow sections to be shorter on mobile */
-        padding: 40px 20px; /* Increase vertical padding */
-        background-attachment: scroll; /* Allow background to scroll with content on mobile */
+        min-height: 100dvh; /* Use dynamic viewport height for mobile */
+        padding: 20px; /* Reset padding if needed, or adjust */
+        background-attachment: scroll; /* Default for mobile, override below */
     }
 
     #hero {
         align-items: center; /* Center content */
         text-align: center;
-        background-attachment: scroll;
+        background-attachment: scroll; /* Revert to scroll for mobile performance */
     }
 
     #hero .text-box {
         max-width: 80%;
-        margin-left: 0; /* Remove left margin */
+        margin-left: auto; /* Center the box */
+        margin-right: auto; /* Center the box */
+        margin-top: 0; /* Reset top margin */
         padding: 20px;
     }
 
     .image-grid {
         grid-template-columns: 1fr; /* Single column */
-        grid-template-rows: auto; /* Let rows size automatically */
-        width: 100%; /* Full width on mobile */
-        height: auto; /* Adjust height automatically */
-        gap: 0; /* No gap between images */
+        grid-template-rows: repeat(4, 1fr); /* 4 rows sharing the height */
+        width: 100%; /* Full width */
+        height: 100%; /* Full height of parent (#gallery) */
+        gap: 0; /* No gap */
+    }
+
+    #gallery {
+        height: 100dvh; /* Use dynamic viewport height for mobile */
+        padding: 0; /* Remove padding for full bleed images */
     }
 
      /* Make captions always visible on mobile, slightly smaller */
@@ -224,20 +234,51 @@ section {
     }
 
     #services {
-        background-attachment: scroll;
+        height: 100dvh; /* Use dynamic viewport height for mobile */
+        padding: 0; /* Remove padding for full bleed */
+        align-items: center; /* Center content vertically */
+        text-align: center; /* Center text horizontally */
+        background-attachment: scroll; /* Revert to scroll for mobile performance */
+        display: flex; /* Ensure flex properties apply */
+        flex-direction: column; /* Stack content vertically */
+        justify-content: center; /* Center content vertically */
     }
 
-    #services .content {
-        max-width: 90%;
-        margin-bottom: 80px; /* Add space above the social links bar */
+    #services .text-box { /* Target the text box specifically */
+        max-width: 80%;
+        margin-left: auto; /* Center the box */
+        margin-right: auto; /* Center the box */
+        margin-top: 0; /* Reset top margin */
+        padding: 20px;
+        /* Remove desktop-specific margin-left if it existed */
+        /* margin-left: auto; is sufficient */
+    }
+
+    #services .content { /* Keep this if needed for other content */
+         max-width: 90%;
+         /* margin-bottom: 80px; /* Remove or adjust as needed */
     }
 
     .social-links {
-        padding: 50px;
+        /* Adjust padding or position if needed */
+        padding: 20px; /* Example reset */
+        width: 90%; /* Make it wider */
+        text-align: center; /* Center links */
+        left: 5%; /* Adjust left positioning */
+        bottom: 5%; /* Adjust bottom positioning */
     }
 
     .social-links a {
         margin: 0 10px; /* Slightly reduce spacing */
+        display: inline-block; /* Ensure proper spacing */
+    }
+
+    /* Reduce icon size */
+    .social-links a img {
+        height: 1em; /* Scale with text */
+        width: auto;
+        vertical-align: middle; /* Keep alignment */
+        margin-left: 4px; /* Adjust spacing */
     }
 }
 
