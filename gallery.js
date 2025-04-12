@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (activeImageSrc) {
                 // Apply background with overlay
-                document.body.style.backgroundImage = `linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('${activeImageSrc}')`;
+                document.body.style.backgroundImage = `linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('${activeImageSrc}')`;
                 // Ensure other background properties are set correctly
                 document.body.style.backgroundSize = 'cover';
                 document.body.style.backgroundPosition = 'center center';
