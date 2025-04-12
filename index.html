@@ -30,7 +30,7 @@
             <h4>דברו איתי:)</h4>
         </div>
         <div class="social-links">
-            <a href="https://instagram.com/lomaashima">Instagram<img src="pictures/icons/instegram%20white%20icon.png" alt="Instagram Icon" style="vertical-align: middle; margin-left: 5px;"></a>
+            <a href="https://instagram.com/lomaashima"><img src="pictures/icons/instegram%20white%20icon.png" alt="Instagram Icon" style="vertical-align: middle; margin-right: 5px;">Instagram</a>
         </div>
     </section>
 
@@ -68,7 +68,7 @@
             </div>
         </div>
         <div class="social-links">
-            <a href="https://instagram.com/lomaashima">Instagram<img src="pictures/icons/instegram%20white%20icon.png" alt="Instagram Icon" style="vertical-align: middle; margin-left: 5px;"></a>
+            <a href="https://instagram.com/lomaashima"><img src="pictures/icons/instegram%20white%20icon.png" alt="Instagram Icon" style="vertical-align: middle; margin-right: 5px;">Instagram</a>
         </div>
     </section>
     <!-- Section 4: Contact -->
@@ -76,11 +76,38 @@
         <h2>Contact Me</h2>
         <p>You can reach me via Instagram:</p>
         <div class="social-links">
-             <a href="https://instagram.com/lomaashima">Instagram<img src="pictures/icons/instegram%20white%20icon.png" alt="Instagram Icon" style="vertical-align: middle; margin-left: 5px;"></a>
+             <a href="https://instagram.com/lomaashima"><img src="pictures/icons/instegram%20white%20icon.png" alt="Instagram Icon" style="vertical-align: middle; margin-right: 5px;">Instagram</a>
         </div>
         <!-- Add more contact info or a form here if needed -->
     </section>
 
+    <script>
+        const header = document.querySelector('header');
+        let lastScrollTop = 0;
+
+        // Function to handle header visibility
+        const handleScroll = () => {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop <= 0) {
+                // At the very top
+                header.classList.add('header-visible');
+            } else if (scrollTop < lastScrollTop) {
+                // Scrolling Up
+                header.classList.add('header-visible');
+            } else {
+                // Scrolling Down
+                header.classList.remove('header-visible');
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+        };
+
+        // Initial check in case the page loads scrolled or at the top
+        handleScroll();
+
+        // Add scroll event listener
+        window.addEventListener('scroll', handleScroll, false);
+    </script>
 </body>
 </html>
 </html>

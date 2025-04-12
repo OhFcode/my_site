@@ -31,7 +31,7 @@ section {
 
 /* Section 1: Hero/About */
 #hero {
-    background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('pictures/landscape/1.jpg') center/cover no-repeat; /* Placeholder faded background */
+    background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url('pictures/landscape/1.jpg') center/cover no-repeat; /* Placeholder faded background */
     align-items: flex-start; /* Align text box to the left */
     background-attachment: fixed; /* Keep background fixed during scroll */
 }
@@ -46,6 +46,16 @@ section {
     border-radius: 5px;
     color: white; /* Set text color to white */
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* Add a subtle text shadow */
+}
+
+#hero .text-box h1 {
+    font-size: 2.8em; /* Increase heading size */
+    margin-bottom: 15px; /* Adjust spacing */
+}
+
+#hero .text-box p {
+    font-size: 1.2em; /* Increase paragraph size */
+    line-height: 1.6; /* Improve readability */
 }
 
 #gallery .social-links {
@@ -464,6 +474,12 @@ header {
     z-index: 1000; /* Ensure header is above other content */
     text-align: center; /* Center the navigation links */
     box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Optional subtle shadow */
+    transform: translateY(-100%); /* Hide header initially */
+    transition: transform 0.3s ease-in-out; /* Smooth transition */
+}
+
+header.header-visible {
+    transform: translateY(0); /* Show header */
 }
 
 header nav a {
@@ -479,9 +495,9 @@ header nav a:hover {
     color: #ddd; /* Lighter color on hover */
 }
 
-/* Add padding to the top of the body to prevent content overlap */
+/* Remove body padding-top as header is initially hidden */
 body {
-    padding-top: 60px; /* Adjust based on header height */
+    /* padding-top: 60px; /* Removed */
 }
 
 /* Adjust padding-top for the first section if needed, or rely on body padding */
@@ -499,8 +515,8 @@ body {
         margin: 0 5px;
         font-size: 0.9em; /* Slightly smaller font on mobile */
     }
-    /* Adjust body padding-top for mobile header height */
+    /* Remove body padding-top for mobile */
     body {
-        padding-top: 50px; /* Adjust based on mobile header height */
+        /* padding-top: 50px; /* Removed */
     }
 }
