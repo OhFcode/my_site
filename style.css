@@ -1,7 +1,7 @@
 html {
     scroll-snap-type: y mandatory; /* Enable vertical mandatory snapping */
     overflow-y: scroll; /* Ensure vertical scrollbar is present */
-    scroll-padding-top: 20px; /* Add some scroll padding to increase friction */
+    /* scroll-padding-top: 20px; /* Removed as it might interfere with fixed header */
 }
 
 body {
@@ -181,6 +181,44 @@ section {
 
 .social-links a:hover {
     text-decoration: underline;
+}
+
+/* Section 4: Contact */
+#contact {
+    background-color: #e9e9e9; /* Light gray background */
+    color: #333; /* Dark text color */
+    text-align: center;
+}
+
+#contact h2 {
+    margin-bottom: 15px;
+}
+
+#contact p {
+    margin-bottom: 20px;
+}
+
+/* Override absolute positioning for social links in contact section */
+#contact .social-links {
+    position: static; /* Reset position */
+    text-align: center; /* Center the links */
+    padding: 10px 0; /* Adjust padding */
+    width: 100%; /* Take full width */
+}
+
+#contact .social-links a {
+    color: #333; /* Dark link color */
+    text-shadow: none; /* Remove text shadow */
+    font-size: 1.2em; /* Slightly larger font */
+}
+
+#contact .social-links a:hover {
+    color: #007bff; /* Example hover color */
+    text-decoration: none;
+}
+
+#contact .social-links img {
+    height: 1.2em; /* Adjust icon size */
 }
 
 /* --- Mobile Responsiveness --- */
@@ -396,4 +434,56 @@ section {
 .carousel-prev:hover,
 .carousel-next:hover {
     background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Header Styles */
+header {
+    position: fixed; /* Keep header fixed at the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(51, 51, 51, 0.7); /* Transparent dark gray */
+    padding: 10px 0; /* Padding top/bottom */
+    z-index: 1000; /* Ensure header is above other content */
+    text-align: center; /* Center the navigation links */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Optional subtle shadow */
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px; /* Padding around links */
+    margin: 0 10px; /* Spacing between links */
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: #ddd; /* Lighter color on hover */
+}
+
+/* Add padding to the top of the body to prevent content overlap */
+body {
+    padding-top: 60px; /* Adjust based on header height */
+}
+
+/* Adjust padding-top for the first section if needed, or rely on body padding */
+/* #hero {
+    padding-top: 80px; /* Example adjustment if body padding isn't enough */
+/* } */
+
+/* Adjust header padding on mobile */
+@media (max-width: 768px) {
+    header {
+        padding: 8px 0;
+    }
+    header nav a {
+        padding: 8px 10px;
+        margin: 0 5px;
+        font-size: 0.9em; /* Slightly smaller font on mobile */
+    }
+    /* Adjust body padding-top for mobile header height */
+    body {
+        padding-top: 50px; /* Adjust based on mobile header height */
+    }
 }
