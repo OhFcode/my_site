@@ -1,4 +1,5 @@
 html {
+    direction: rtl; /* Set text direction to right-to-left */
     scroll-snap-type: y mandatory; /* Enable vertical mandatory snapping */
     overflow-y: scroll; /* Ensure vertical scrollbar is present */
     /* scroll-padding-top: 20px; /* Removed as it might interfere with fixed header */
@@ -36,12 +37,15 @@ section {
 }
 
 #hero .text-box {
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    background-color: rgba(131, 124, 124, 0.6); /* Semi-transparent white background */
     padding: 30px;
     max-width: 30%; /* Limit width */
-    margin-left: 5%; /* Position on the left */
-    margin-top: -200px; /* Move text box up */
+    margin-right: 60%; /* Position on the right (visual left in RTL) */
+    margin-left: auto; /* Ensure it doesn't stick to the left edge */
+    margin-top: -150px; /* Move text box up */
     border-radius: 5px;
+    color: white; /* Set text color to white */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* Add a subtle text shadow */
 }
 
 #gallery .social-links {
@@ -179,8 +183,18 @@ section {
     color: white;
 }
 
+.social-links a {
+    /* Add background and padding */
+    background-color: rgba(128, 128, 128, 0.5); /* Gray with 50% transparency */
+    padding: 5px 10px;
+    border-radius: 3px;
+    display: inline-block; /* Needed for padding to work well */
+    /* Ensure existing styles like color, margin, etc., are inherited or defined */
+}
+
 .social-links a:hover {
     text-decoration: underline;
+    background-color: rgba(128, 128, 128, 0.7); /* Slightly darker on hover */
 }
 
 /* Section 4: Contact */
@@ -244,6 +258,9 @@ section {
         margin-right: auto; /* Center the box */
         margin-top: 0; /* Reset top margin */
         padding: 20px;
+        background-color: transparent; /* Remove background on mobile */
+        /* Optional: Adjust text shadow if needed for visibility without background */
+        /* text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); */
     }
 
     .image-grid {
